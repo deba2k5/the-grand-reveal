@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { Confetti } from "./Confetti";
 import { Invitation } from "./Invitation";
+import { sfx } from "@/lib/sound";
 
 type Stage = "sealed" | "opening" | "revealed";
 
-export function EnvelopeReveal() {
-  const [stage, setStage] = useState<Stage>("sealed");
+export function EnvelopeReveal({
+  name,
+  instant = false,
+}: {
+  name: string;
+  instant?: boolean;
+}) {
+  const [stage, setStage] = useState<Stage>(instant ? "revealed" : "sealed");
 
   useEffect(() => {
     if (stage !== "opening") return;
@@ -14,23 +21,27 @@ export function EnvelopeReveal() {
   }, [stage]);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[oklch(0.08_0.01_60)] px-4 py-16">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[oklch(0.08_0.01_60)] px-4 py-12 sm:py-16">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/45 blur-[130px] animate-glow-pulse" />
       {stage !== "sealed" && <Confetti />}
 
       {stage === "revealed" ? (
-        <Invitation />
+        <Invitation name={name} />
       ) : (
         <div className="relative z-10 flex flex-col items-center">
-          <p className="font-display text-xs uppercase tracking-[0.5em] text-gold-gradient sm:text-sm">
+          <p className="text-center font-display text-[0.65rem] uppercase tracking-[0.4em] text-gold-gradient sm:text-sm sm:tracking-[0.5em]">
             A special delivery for you
           </p>
 
-          <div className="perspective-scene mt-14">
+          <div className="perspective-scene mt-12 w-full max-w-[26rem] px-2">
             <button
-              onClick={() => stage === "sealed" && setStage("opening")}
+              onClick={() => {
+                if (stage !== "sealed") return;
+                sfx.open();
+                setStage("opening");
+              }}
               aria-label="Open the envelope"
-              className={`relative block h-56 w-[22rem] cursor-pointer sm:h-64 sm:w-[26rem] ${
+              className={`relative block aspect-[13/8] w-full cursor-pointer ${
                 stage === "sealed" ? "animate-wiggle" : ""
               }`}
               style={{ transformStyle: "preserve-3d" }}
@@ -89,11 +100,11 @@ export function EnvelopeReveal() {
           </div>
 
           <p
-            className={`mt-16 font-arcade text-[0.7rem] uppercase tracking-[0.45em] text-paper/60 transition-opacity duration-500 ${
+            className={`mt-14 font-arcade text-[0.65rem] uppercase tracking-[0.4em] text-paper/60 transition-opacity duration-500 ${
               stage === "sealed" ? "animate-pulse opacity-100" : "opacity-0"
             }`}
           >
-            Click to open
+            Tap to open
           </p>
         </div>
       )}
