@@ -132,6 +132,164 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+/* ── Bengal E-Summit invitation experience ───────────────────────── */
+
+:root {
+  /* arcade (game) side */
+  --arcade-bg: oklch(0.16 0.02 265);
+  --arcade-bg-deep: oklch(0.11 0.02 265);
+  --arcade-neon: oklch(0.82 0.17 85);
+  --arcade-neon-2: oklch(0.7 0.19 25);
+  --arcade-fg: oklch(0.96 0.01 90);
+
+  /* invitation (paper) side */
+  --paper: oklch(0.95 0.026 85);
+  --paper-deep: oklch(0.89 0.04 82);
+  --ink: oklch(0.22 0.02 60);
+  --gold: oklch(0.72 0.12 80);
+  --gold-bright: oklch(0.86 0.11 90);
+  --crimson: oklch(0.42 0.16 25);
+
+  --font-display: "Cinzel", serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-arcade: "Space Grotesk", sans-serif;
+
+  --gradient-gold: linear-gradient(
+    135deg,
+    var(--gold) 0%,
+    var(--gold-bright) 45%,
+    var(--gold) 100%
+  );
+  --gradient-paper: linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 100%);
+  --shadow-envelope: 0 40px 90px -20px oklch(0 0 0 / 0.75);
+  --shadow-glow: 0 0 60px -10px var(--gold);
+}
+
+@theme inline {
+  --color-arcade-bg: var(--arcade-bg);
+  --color-arcade-bg-deep: var(--arcade-bg-deep);
+  --color-arcade-neon: var(--arcade-neon);
+  --color-arcade-neon-2: var(--arcade-neon-2);
+  --color-arcade-fg: var(--arcade-fg);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-crimson: var(--crimson);
+  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
+  --font-arcade: var(--font-arcade);
+}
+
+@utility text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility paper-surface {
+  background: var(--gradient-paper);
+  background-image:
+    radial-gradient(oklch(0.4 0.05 70 / 0.05) 1px, transparent 1px),
+    var(--gradient-paper);
+  background-size:
+    3px 3px,
+    100% 100%;
+}
+
+@utility perspective-scene {
+  perspective: 1400px;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-1.5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1.5deg) translateY(-6px);
+  }
+}
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.12);
+  }
+}
+@keyframes letter-rise {
+  0% {
+    transform: translateY(0) scale(0.82);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-42%) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes confetti-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(720deg);
+    opacity: 0;
+  }
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scanline {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@utility animate-wiggle {
+  animation: wiggle 2.2s ease-in-out infinite;
+}
+@utility animate-float-soft {
+  animation: float-soft 4s ease-in-out infinite;
+}
+@utility animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+@utility animate-rise-in {
+  animation: rise-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
