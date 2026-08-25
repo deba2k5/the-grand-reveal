@@ -79,20 +79,24 @@ export function Invitation({ name }: { name: string }) {
         Your presence will make this experience even more special.
       </p>
 
-      <a
-        href="#rsvp"
-        className="relative mt-10 inline-flex items-center gap-3 rounded-none border border-ink/70 bg-ink px-10 py-4 font-display text-xs uppercase tracking-[0.35em] text-paper transition-all duration-300 hover:scale-[1.03] hover:bg-crimson animate-rise-in"
-        style={{ animationDelay: "1.05s" }}
-      >
-        RSVP <span aria-hidden>→</span>
-      </a>
-
       <p
         className="relative mt-10 font-serif text-base italic text-ink/55 animate-rise-in"
         style={{ animationDelay: "1.15s" }}
       >
         P.S. You already completed the game. So technically, you can&apos;t say no now. 😌
       </p>
+
+      <button
+        type="button"
+        onClick={() => {
+          window.localStorage.removeItem("bes-guest-name");
+          window.location.reload();
+        }}
+        className="relative mt-8 font-display text-[0.6rem] uppercase tracking-[0.3em] text-ink/40 underline-offset-4 transition-colors hover:text-ink/70 hover:underline animate-rise-in"
+        style={{ animationDelay: "1.25s" }}
+      >
+        Reset
+      </button>
     </article>
   );
 }

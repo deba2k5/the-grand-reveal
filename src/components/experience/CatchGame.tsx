@@ -13,7 +13,7 @@ export function CatchGame({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     if (done) return;
-    const id = window.setInterval(jump, 1800);
+    const id = window.setInterval(jump, 1100);
     return () => window.clearInterval(id);
   }, [jump, done]);
 
