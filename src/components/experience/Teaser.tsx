@@ -30,11 +30,11 @@ export function Teaser({ onStart }: { onStart: (name: string) => void }) {
           HEY YOU. <span className="inline-block animate-wiggle">👀</span>
         </p>
         <p className="mt-4 font-arcade text-base text-arcade-fg/70 sm:text-xl">
-          We have something for you.
+          A surprise awaits.
         </p>
         <p className="mt-1 font-arcade text-base text-arcade-fg/70 sm:text-xl">But first…</p>
         <p className="mt-3 font-arcade text-xl font-semibold text-gold-gradient sm:text-3xl">
-          earn your invitation.
+          step into the unknown.
         </p>
       </div>
 

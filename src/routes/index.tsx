@@ -4,7 +4,7 @@ import { Teaser } from "@/components/experience/Teaser";
 import { CatchGame } from "@/components/experience/CatchGame";
 import { EnvelopeReveal } from "@/components/experience/EnvelopeReveal";
 
-const title = "IEM Bengal E-Summit 2026 — Earn Your Invitation";
+const title = "IEM Bengal E-Summit 2026 — A Surprise Awaits";
 const description =
   "Play a tiny game, open the envelope, and claim your animated invitation to the IEM Bengal E-Summit 2026.";
 
