@@ -15,7 +15,7 @@ export function EnvelopeReveal() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[oklch(0.08_0.01_60)] px-4 py-16">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 blur-[140px] animate-glow-pulse" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/45 blur-[130px] animate-glow-pulse" />
       {stage !== "sealed" && <Confetti />}
 
       {stage === "revealed" ? (
