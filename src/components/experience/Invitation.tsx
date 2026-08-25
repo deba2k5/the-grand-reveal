@@ -1,6 +1,5 @@
 import logoAsset from "@/assets/logo.png.asset.json";
 
-const lines: { delay: number; node: React.ReactNode }[] = [];
 
 export function Invitation() {
   return (
