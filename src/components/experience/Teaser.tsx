@@ -1,6 +1,6 @@
 import { useState } from "react";
-import owlAsset from "@/assets/owl.png.asset.json";
-import logoAsset from "@/assets/logo.png.asset.json";
+import owlImg from "@/assets/2.png";
+import logoImg from "@/assets/1.png";
 import { sfx } from "@/lib/sound";
 
 export function Teaser({ onStart }: { onStart: (name: string) => void }) {
@@ -20,7 +20,7 @@ export function Teaser({ onStart }: { onStart: (name: string) => void }) {
       <div className="pointer-events-none absolute left-1/2 top-1/3 h-[46rem] w-[46rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-arcade-neon/20 blur-[130px] animate-glow-pulse" />
 
       <img
-        src={logoAsset.url}
+        src={logoImg}
         alt="Bengal E-Summit 2026 logo"
         className="relative w-32 animate-float-soft drop-shadow-[0_10px_40px_oklch(0.72_0.12_80/0.45)] sm:w-52"
       />
@@ -67,7 +67,7 @@ export function Teaser({ onStart }: { onStart: (name: string) => void }) {
       </form>
 
       <img
-        src={owlAsset.url}
+        src={owlImg}
         alt="Summit mascot owl pointing the way"
         className="pointer-events-none relative mt-8 w-44 opacity-90 animate-float-soft sm:w-72"
       />

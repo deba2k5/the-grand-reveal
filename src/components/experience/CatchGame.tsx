@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import owlAsset from "@/assets/owl.png.asset.json";
+import owlImg from "@/assets/2.png";
 import { sfx } from "@/lib/sound";
 
 export function CatchGame({ onComplete }: { onComplete: () => void }) {
@@ -44,7 +44,7 @@ export function CatchGame({ onComplete }: { onComplete: () => void }) {
           >
             <span className="absolute inset-0 rounded-full bg-gold/20 blur-2xl" />
             <img
-              src={owlAsset.url}
+              src={owlImg}
               alt="Summit mascot"
               className="relative h-full w-full select-none object-contain drop-shadow-[0_0_25px_oklch(0.82_0.17_85/0.6)]"
               draggable={false}

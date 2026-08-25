@@ -1,13 +1,13 @@
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoImg from "@/assets/1.png";
 
 
-export function Invitation() {
+export function Invitation({ name }: { name: string }) {
   return (
     <article className="paper-surface relative z-10 w-full max-w-2xl rounded-sm border border-gold/40 px-7 py-14 text-center shadow-[var(--shadow-envelope)] animate-rise-in sm:px-16 sm:py-20">
       <div className="pointer-events-none absolute inset-3 border border-gold/30" />
 
       <img
-        src={logoAsset.url}
+        src={logoImg}
         alt="Bengal E-Summit 2026 logo"
         className="relative mx-auto w-32 animate-rise-in sm:w-40"
         style={{ animationDelay: "0.1s" }}
@@ -19,6 +19,13 @@ export function Invitation() {
       >
         You are invited
       </h1>
+
+      <p
+        className="relative mt-4 font-serif text-lg italic text-ink/80 animate-rise-in sm:text-xl"
+        style={{ animationDelay: "0.3s" }}
+      >
+        Dear {name},
+      </p>
 
       <div
         className="relative mx-auto mt-6 h-px w-24 bg-[var(--gradient-gold)] animate-rise-in"
@@ -55,11 +62,11 @@ export function Invitation() {
       >
         <div className="border border-gold/40 px-4 py-5">
           <dt className="text-[0.6rem] tracking-[0.35em] text-ink/50">Date</dt>
-          <dd className="mt-2">To be announced</dd>
+          <dd className="mt-2">29th &amp; 30th August</dd>
         </div>
         <div className="border border-gold/40 px-4 py-5">
           <dt className="text-[0.6rem] tracking-[0.35em] text-ink/50">Venue</dt>
-          <dd className="mt-2">IEM Campus, Kolkata</dd>
+          <dd className="mt-2">IEM Gurukul Building, Kolkata</dd>
         </div>
       </dl>
 
